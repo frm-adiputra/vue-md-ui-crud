@@ -47,10 +47,17 @@
       "plugin:vue/essential",
       "@vue/prettier"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "useTabs": true
   },
   "postcss": {
     "plugins": {
