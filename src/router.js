@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/Login.vue'
+import RoleXPage from './views/RoleXPage.vue'
+import RoleXListA from './views/RoleXListA.vue'
 
 Vue.use(Router)
 
@@ -9,6 +11,17 @@ export default new Router({
 		{
 			path: '/login',
 			component: Login
+		},
+		{
+			path: '/role-x',
+			component: RoleXPage,
+			children: [
+				{ path: '', redirect: 'list-a' },
+				{
+					path: 'list-a',
+					component: RoleXListA
+				}
+			]
 		}
 		// {
 		// 	path: '/about',

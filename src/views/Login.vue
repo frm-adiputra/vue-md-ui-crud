@@ -12,12 +12,17 @@ v-app
                             v-text-field(label='Password' type='password')
                         v-card-actions
                             v-spacer
-                            v-btn(color='primary') Sign In
+                            v-btn(color='primary' @click="onSignIn") Sign In
 </template>
 
 <script>
 export default {
-
+    name: 'Login',
+    methods: {
+        onSignIn() {
+            this.$router.push('/role-x')
+        }
+    }
 }
 </script>
 

@@ -1,5 +1,10 @@
 # vue-md-ui-crud
 
+## Application structure
+
+- Each user role have its own navigation drawer (ex: `RoleXPage.vue`)
+- Each link in navigation drawer corresponds to top level screen for the role (ex: `RoleXListA.vue`)
+
 ## Project setup
 ```
 npm install
