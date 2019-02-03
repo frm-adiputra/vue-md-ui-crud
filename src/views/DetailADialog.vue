@@ -1,13 +1,17 @@
 <template lang="pug">
-ARouteDialog
+ARouteDialog(:max-width="maxWidth")
 	v-card
-		v-card-title(primary-title) Dialog
+		v-toolbar(flat color="transparent")
+			v-toolbar-title Article
+			v-spacer
+			v-toolbar-items
+				v-btn(icon)
+					v-icon edit
+		v-card-title(primary-title)
+			.headline {{ title }}
 		v-card-text
 			p {{ title }}
 			p {{ author }}
-		v-card-actions
-			v-spacer
-			v-btn Edit
 </template>
 
 <script>
@@ -22,7 +26,14 @@ export default {
 	},
 	computed: {
 		title() { return this.detail != null ? this.detail.title : null },
-		author() { return this.detail != null ? this.detail.author : null }
+		author() { return this.detail != null ? this.detail.author : null },
+		maxWidth() {
+			if (this.$vuetify.breakpoint.sm) {
+				return 64 * 8
+			} else {
+				return 64 * 11
+			}
+		}
 	},
 	mounted() {
 		this.detail = api.getArticle(this.$route.params.id)
