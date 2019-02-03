@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from './views/Login.vue'
 import RoleXPage from './views/RoleXPage.vue'
 import RoleXListA from './views/RoleXListA.vue'
+import DetailADialog from './views/DetailADialog.vue'
 
 Vue.use(Router)
 
@@ -19,7 +20,23 @@ export default new Router({
 				{ path: '', redirect: 'list-a' },
 				{
 					path: 'list-a',
+					component: RoleXListA,
+					children: [
+						{
+							path: 'detail/:id',
+							component: DetailADialog
+						}
+					]
+				},
+				{
+					path: 'list-b',
 					component: RoleXListA
+					// children: [
+					// 	{
+					// 		path: 'detail/:id',
+					// 		component: DetailA
+					// 	}
+					// ]
 				}
 			]
 		}
