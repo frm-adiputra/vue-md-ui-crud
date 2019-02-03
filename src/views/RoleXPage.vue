@@ -7,9 +7,9 @@
 						v-list-tile-content
 							v-list-tile-title.title AppTitle
 			v-list
-				v-list-tile(to="/")
+				v-list-tile(to="/role-x/list-a")
 					v-list-tile-content
-						v-list-tile-title Home
+						v-list-tile-title List A
 		router-view
 </template>
 
