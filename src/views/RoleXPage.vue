@@ -1,11 +1,7 @@
 <template lang="pug">
 	v-app
-		v-navigation-drawer(app)
-			v-toolbar(flat)
-				v-list
-					v-list-tile
-						v-list-tile-content
-							v-list-tile-title.title AppTitle
+		portal-target(name="toolbar")
+		v-navigation-drawer(app floating clipped v-model="drawer")
 			v-list
 				v-list-tile(to="/role-x/list-a")
 					v-list-tile-content
@@ -14,7 +10,23 @@
 </template>
 
 <script>
-export default {}
+export default {
+	name: 'RoleXPage',
+	data() {
+		return {
+			drawer: false
+		}
+	},
+	methods: {
+		toggleDrawer() { this.drawer = !this.drawer }
+	},
+	created() {
+		this.$eventBus.$on('toggle-drawer', this.toggleDrawer)
+	},
+	beforeDestroy() {
+		this.$eventBus.$off('toggle-drawer', this.toggleDrawer)
+	}
+}
 </script>
 
 <style>

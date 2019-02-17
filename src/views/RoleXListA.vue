@@ -1,8 +1,9 @@
 <template lang="pug">
     v-content
-        v-toolbar(app)
-            v-toolbar-side-icon
-            v-toolbar-title Home
+        portal(to="toolbar")
+            v-toolbar(app flat clipped-left)
+                v-toolbar-side-icon(@click="toggleDrawer")
+                v-toolbar-title Home
         v-list(two-line)
             v-list-tile(v-for="item in items" :key="item.id" @click="showDetail(item.id)")
                 v-list-tile-content
@@ -29,6 +30,9 @@ export default {
     methods: {
         showDetail(id) {
             this.$router.push(`/role-x/list-a/detail/${id}`)
+        },
+        toggleDrawer() {
+            this.$eventBus.$emit('toggle-drawer')
         }
     }
 }

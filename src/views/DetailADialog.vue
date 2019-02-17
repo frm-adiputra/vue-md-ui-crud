@@ -8,10 +8,14 @@ ARouteDialog(:max-width="maxWidth")
 				v-btn(icon)
 					v-icon edit
 		v-card-title(primary-title)
-			.headline {{ title }}
+			.a-h5 {{ title }}
 		v-card-text
-			p {{ title }}
-			p {{ author }}
+			.field
+				.field__label Title
+				.field__value {{ title }}
+			.field
+				.field__label Author
+				.field__value {{ author }}
 </template>
 
 <script>

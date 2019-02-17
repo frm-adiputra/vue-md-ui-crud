@@ -1,0 +1,20 @@
+@require '~alos-md-stylus/src/lib/variables'
+
+// Override variables
+$base-font-size = 14px
+
+@require '~alos-md-stylus/src/lib/functions'
+@require '~alos-md-stylus/src/lib/mixins'
+@require '~alos-md-stylus/src/lib/typography'
+
+.field
+    padding: 12px 0
+
+.field__label
+    typography($body2)
+    rhythm($body2, 20px)
+    color: rgba(0,0,0,.54)
+
+.field__value
+    typography($body1)
+    rhythm($body1, 20px)
