@@ -5,6 +5,18 @@
 - Each user role have its own navigation drawer (ex: `RoleXPage.vue`)
 - Each link in navigation drawer corresponds to top level screen for the role (ex: `RoleXListA.vue`)
 
+### One line list
+
+- On desktop shows a multiple columns list (https://material.io/design/components/lists.html#types)
+
+### Two lines list
+
+- On desktop shows a multiple columns list (https://material.io/design/components/lists.html#types)
+
+### Three lines list
+
+- On desktop shows a detail area on the right of list (https://material.io/design/components/lists.html#types)
+
 ## Project setup
 ```
 npm install
