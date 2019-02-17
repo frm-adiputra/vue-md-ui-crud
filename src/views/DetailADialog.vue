@@ -7,7 +7,7 @@ ARouteDialog(:width="maxWidth" :fullscreen="fullscreen" v-model="dlg")
 			v-toolbar-title Article
 			v-spacer
 			v-toolbar-items
-				v-btn(icon)
+				v-btn(icon @click="editDlg = true")
 					v-icon edit
 				v-btn(icon)
 					v-icon delete
@@ -20,17 +20,23 @@ ARouteDialog(:width="maxWidth" :fullscreen="fullscreen" v-model="dlg")
 			.field
 				.field__label Author
 				.field__value {{ author }}
+	EditADialog(v-model="editDlg")
 </template>
 
 <script>
 import api from '@/api'
+import EditADialog from '@/views/EditADialog'
 
 export default {
 	name: 'DetailADialog',
+	components: {
+		EditADialog
+	},
 	data() {
 		return {
 			detail: null,
-			dlg: false
+			dlg: false,
+			editDlg: false
 		}
 	},
 	computed: {
