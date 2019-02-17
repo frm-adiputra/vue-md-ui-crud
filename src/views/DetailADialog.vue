@@ -1,5 +1,5 @@
 <template lang="pug">
-ARouteDialog(:max-width="maxWidth" :fullscreen="fullscreen" v-model="dlg")
+ARouteDialog(:width="maxWidth" :fullscreen="fullscreen" v-model="dlg")
 	v-card
 		v-toolbar(flat color="transparent")
 			v-btn(icon v-if="fullscreen" @click="closeDialog" :ripple="false")
@@ -37,10 +37,16 @@ export default {
 		title() { return this.detail != null ? this.detail.title : null },
 		author() { return this.detail != null ? this.detail.author : null },
 		maxWidth() {
-			if (this.$vuetify.breakpoint.sm) {
+			if (this.$vuetify.breakpoint.xl) {
+				return 64 * 17
+			} else if (this.$vuetify.breakpoint.lg) {
+				return 64 * 15
+			} else if (this.$vuetify.breakpoint.md) {
+				return 64 * 11
+			} else if (this.$vuetify.breakpoint.sm) {
 				return 64 * 8
 			} else {
-				return 64 * 11
+				return 64 * 8
 			}
 		},
 		fullscreen() {
