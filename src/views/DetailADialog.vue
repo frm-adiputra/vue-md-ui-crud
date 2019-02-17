@@ -1,12 +1,16 @@
 <template lang="pug">
-ARouteDialog(:max-width="maxWidth")
+ARouteDialog(:max-width="maxWidth" :fullscreen="fullscreen" v-model="dlg")
 	v-card
 		v-toolbar(flat color="transparent")
+			v-btn(icon v-if="fullscreen" @click="closeDialog" :ripple="false")
+				v-icon close
 			v-toolbar-title Article
 			v-spacer
 			v-toolbar-items
 				v-btn(icon)
 					v-icon edit
+				v-btn(icon)
+					v-icon delete
 		v-card-title(primary-title)
 			.a-h5 {{ title }}
 		v-card-text
@@ -25,7 +29,8 @@ export default {
 	name: 'DetailADialog',
 	data() {
 		return {
-			detail: null
+			detail: null,
+			dlg: false
 		}
 	},
 	computed: {
@@ -37,6 +42,14 @@ export default {
 			} else {
 				return 64 * 11
 			}
+		},
+		fullscreen() {
+			return this.$vuetify.breakpoint.xsOnly
+		}
+	},
+	methods: {
+		closeDialog() {
+			this.dlg = false
 		}
 	},
 	mounted() {
